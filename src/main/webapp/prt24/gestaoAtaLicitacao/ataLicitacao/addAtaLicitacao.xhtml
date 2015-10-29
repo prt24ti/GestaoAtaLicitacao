@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Gestão de Atas de Licitação - PRT 24a. Região/MS</title>
+    </h:head>
+    <h:body>
+        <p:tooltip />
+        <h:form id="addAtaLicitacaoForm">
+            <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+            
+            <h1>Cadastrar Ata Licitação</h1>
+            <p:panelGrid id="gridSalvarAta" columns="3">
+                <p:outputLabel for="numeroAtaIM" value="Número da Ata:" />
+                <p:inputMask id="numeroAtaIM" value="#{ataLicitacaoMB.numeroAta}" required="true" mask="99.9999" />
+                <p:message for="numeroAtaIM" />
+                
+                <p:outputLabel for="numeroProcessoIM" value="Número do Processo:" />
+                <p:inputMask id="numeroProcessoIM" value="#{ataLicitacaoMB.numeroProcesso}" mask="9.99.999.999999/9999-99" required="true" size="23" />
+                <p:message for="numeroProcessoIM" />
+                
+                <p:outputLabel for="paginaProcessoIT" value="Página do Processo:" />
+                <p:inputText id="paginaProcessoIT" value="#{ataLicitacaoMB.paginaProcesso}" required="true" />
+                <p:message for="paginaProcessoIT" />
+                
+                <p:outputLabel for="fornecedorIT" value="Fornecedor:" />
+                <p:inputText id="fornecedorIT" value="#{ataLicitacaoMB.fornecedor}" required="true" />
+                <p:message for="fornecedorIT" />
+                
+                <p:outputLabel for="contatoIT" value="Contato:" />
+                <p:inputText id="contatoIT" value="#{ataLicitacaoMB.contato}" required="true" />
+                <p:message for="contatoIT" />
+                
+                <p:outputLabel for="objetoIT" value="Objeto:" />
+                <p:inputText id="objetoIT" value="#{ataLicitacaoMB.objeto}" required="true" />
+                <p:message for="objetoIT" />
+                
+                <p:outputLabel for="dataAssinaturaCalendar" value="Data Assinatura" />
+                <p:calendar id="dataAssinaturaCalendar" pattern="dd/MM/yyyy" mask="true" required="true" />
+                <p:message for="dataAssinaturaCalendar" />
+                
+                <p:outputLabel for="dataTerminoVigenciaIM" value="Data Término Vigência:" />
+                <p:inputMask id="dataTerminoVigenciaIM" value="#{ataLicitacaoMB.dataTerminoVigencia}" mask="99/99/9999" disabled="true" size="10" />
+                <h:outputText />
+                
+                <p:commandButton id="addItemFormAtaBt" value="Add Item a Ata" icon="ui-icon-plus" onclick="PF('itemDialogWidget').show()">
+                    <f:setPropertyActionListener target="#{ataLicitacaoMB.ataDialog}" value="#{ataLicitacaoMB.ataLicitacao}" />
+                </p:commandButton>
+                <p:commandButton id="salvarAtaLicitacaoCBt" value="Salvar" icon="ui-icon-disk" action="#{ataLicitacaoMB.salvar}" />
+                <h:outputText />
+                
+            </p:panelGrid>
+            
+            <p:dialog id="addItemDialog" header="Add Item" widgetVar="itemDialogWidget" modal="true" showEffect="clip" hideEffect="clip" resizable="false" >
+                <p:panelGrid columns="3" >
+                    <p:outputLabel for="numeroAtaDialogIM" value="Número Ata:" />
+                    <p:inputMask id="numeroAtaDialogIM" value="#{ataLicitacaoMB.ataDialog.numeroAta}" mask="99.9999" disable="true" />
+                    <h:outputText />
+                    
+                    <p:outputLabel for="numeroItemAtaIM" value="Número do Item na Ata:" />
+                    <p:inputMask id="numeroItemAtaIM" value="#{ataLicitacaoMB.numeroItemNaAta}" mask="99.9999/99" required="true" />
+                    <p:message for="numeroItemAtaIM" />
+                    
+                    <p:outputLabel for="descricaoItemITA" value="Descrição:" />
+                    <p:inputTextarea id="descricaoItemITA" value="#{ataLicitacaoMB.descricaoItem}" rows="5" cols="10" autoResize="true" required="true" />
+                    <p:message for="descricaoItemITA" />
+                    
+                    <p:outputLabel for="marcaItemIT" value="Marca:" />
+                    <p:inputText id="marcaItemIT" value="#{ataLicitacaoMB.marcaItem}" required="true" />
+                    <p:messages for="marcaItemIT" />
+                    
+                    <p:outputLabel for="qtdeRegistradaItemIT" value="Qtde Registrada:" />
+                    <p:inputText id="qtdeRegistradaItemIT" value="#{ataLicitacaoMB.qtdeRegistradaItem}" required="true" />
+                    <p:message for="qtdeRegistradaItemIT" />
+                    
+                    <p:outputLabel for="qtdeDisponivelItemIT" value="Qtde Disponível:" />
+                    <p:inputText id="qtdeDisponivelItemIT" value="#{ataLicitacaoMB.qtdeDisponivelItem}" disabled="true" />
+                    <p:message for="qtdeDisponivelItemIT" />
+                    
+                    <p:outputLabel for="valorMaximoItemIT" value="Valor Máximo:" />
+                    <p:inputText id="valorMaximoItemIT" value="#{ataLicitacaoMB.valorMaximoItem}" required="true" >
+                        <f:convertNumber type="currency" locale="pt_BR" />
+                    </p:inputText>
+                    <p:message for="valorMaximoItemIT" />
+                    
+                    <p:commandButton id="addItemAtaBt" value="Add Item na Ata" icon="ui-icon-plus" action="#{ataLicitacaoMB.addItemNaAta}" />
+                </p:panelGrid>
+            </p:dialog>
+        </h:form>
+    </h:body>
+</html>
