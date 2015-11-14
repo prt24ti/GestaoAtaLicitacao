@@ -1,0 +1,56 @@
+<ui:compostion template="/WEB-INF/template/LayoutPadrao.xhtml"
+	  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:o="http://omnifaces.org/ui">
+      
+    <ui:define name="titulo">Nova ata de licitação</ui:define>
+    
+    <ui:define name="corpo">
+        <p:tooltip />
+        <h:form id="cadastroAtaLicitacaoForm">
+        	<h1>Nova ata de licitação</h1>
+            <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+            
+            <p:toolbar style="margin-top: 20px">
+				<p:toolbarGroup>
+					<p:button value="Novo" outcome="/ataLicitacao/CadastroAtaLicitacao" />
+					<p:commandButton value="Salvar" id="botaoSalvar"  update="@form" />
+				</p:toolbarGroup>
+				<p:toolbarGroup align="right">
+					<p:button value="Pesquisar" outcome="" />
+				</p:toolbarGroup>
+			</p:toolbar>
+			
+            <p:panelGrid columns="2">
+                <p:outputLabel for="numeroAta" value="Número da Ata" />
+                <p:inputMask id="numeroAta" value="" mask="99.9999" />
+                
+                <p:outputLabel for="numeroProcesso" value="Número do Processo" />
+                <p:inputMask id="numeroProcesso" value="" mask="9.99.999.999999/9999-99" size="23" />
+                
+                <p:outputLabel for="paginaProcesso" value="Página do Processo" />
+                <p:inputText id="paginaProcesso" value="" />
+                
+                <p:outputLabel for="fornecedor" value="Fornecedor" />
+                <p:inputText id="fornecedor" value="" />
+                
+                <p:outputLabel for="contato" value="Contato" />
+                <p:inputText id="contato" value="" />
+                
+                <p:outputLabel for="objeto" value="Objeto" />
+                <p:inputText id="objeto" value="" />
+                
+                <p:outputLabel for="dataAssinatura" value="Data Assinatura" />
+                <p:calendar id="dataAssinatura" pattern="dd/MM/yyyy" mask="true" />
+                
+                <p:outputLabel for="dataTermino" value="Data de Término" />
+                <h:outputText id="dataTermino">
+                	<f:convertDateTime pattern="dd/MM/yyyy" />
+                </h:outputText>      
+            </p:panelGrid>
+        </h:form>
+    </ui:define>
+</html>

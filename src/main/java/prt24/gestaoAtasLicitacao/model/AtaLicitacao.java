@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package prt24.gestaoAtasLicitacao.entities;
+package prt24.gestaoAtasLicitacao.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -12,172 +12,222 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.Table;
 
 /**
  *
  * @author joao.guedes
  */
+
 @Entity
+@Table(name = "ata_licitacao")
 public class AtaLicitacao implements Serializable {
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
-    
-    private String numeroAta;
-    private String numeroProcesso;
-    private Integer paginaProcesso;
-    private String fornecedor;
-    private String contato;
-    private String objeto;
-    
-    @Temporal(TemporalType.DATE)
-    private Calendar dataAssinatura;
-    
-    @Temporal(TemporalType.DATE)
-    private Calendar dataTerminoVigencia;
-    
-    @OneToMany(mappedBy = "ataLicitacao")
-    private List<Pedido> pedidos;
-    
-    @OneToMany(mappedBy = "ataLicitacao")
-    private List<Item> itens;
-    
-    @OneToMany(mappedBy = "ataLicitacao")
-    private List<AdesaoAta> adesoes;
-    
-    public AtaLicitacao() {
-    	this.pedidos = new ArrayList<Pedido>();
-    	this.itens = new ArrayList<Item>();
-    	this.adesoes = new ArrayList<AdesaoAta>();
-    }
+	private static final long serialVersionUID = 1L;
 
-    public Integer getId() {
-        return id;
-    }
+	private Integer id;
+	private String numeroAta;
+	private String numeroProcesso;
+	private Integer paginaProcesso;
+	private String objeto;
+	private Calendar dataAssinatura;
+	private Calendar dataTerminoVigencia;
+	private List<Pedido> pedidos;
+	private List<Item> itens;
+	private List<AdesaoAta> adesoes;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public AtaLicitacao() {
+		this.pedidos = new ArrayList<Pedido>();
+		this.itens = new ArrayList<Item>();
+		this.adesoes = new ArrayList<AdesaoAta>();
+	}
 
-    public String getNumeroAta() {
-        return numeroAta;
-    }
+	/**
+	 * @return the id
+	 */
+	
+	@Id
+	@GeneratedValue
+	public Integer getId() {
+		return id;
+	}
 
-    public void setNumeroAta(String numeroAta) {
-        this.numeroAta = numeroAta;
-    }
+	/**
+	 * @param id
+	 *            the id to set
+	 */
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public String getNumeroProcesso() {
-        return numeroProcesso;
-    }
+	/**
+	 * @return the numeroAta
+	 */
+	public String getNumeroAta() {
+		return numeroAta;
+	}
 
-    public void setNumeroProcesso(String numeroProcesso) {
-        this.numeroProcesso = numeroProcesso;
-    }
+	/**
+	 * @param numeroAta
+	 *            the numeroAta to set
+	 */
+	public void setNumeroAta(String numeroAta) {
+		this.numeroAta = numeroAta;
+	}
 
-    public Integer getPaginaProcesso() {
-        return paginaProcesso;
-    }
+	/**
+	 * @return the numeroProcesso
+	 */
+	public String getNumeroProcesso() {
+		return numeroProcesso;
+	}
 
-    public void setPaginaProcesso(Integer paginaProcesso) {
-        this.paginaProcesso = paginaProcesso;
-    }
+	/**
+	 * @param numeroProcesso
+	 *            the numeroProcesso to set
+	 */
+	public void setNumeroProcesso(String numeroProcesso) {
+		this.numeroProcesso = numeroProcesso;
+	}
 
-    public String getFornecedor() {
-        return fornecedor;
-    }
+	/**
+	 * @return the paginaProcesso
+	 */
+	public Integer getPaginaProcesso() {
+		return paginaProcesso;
+	}
 
-    public void setFornecedor(String fornecedor) {
-        this.fornecedor = fornecedor;
-    }
+	/**
+	 * @param paginaProcesso
+	 *            the paginaProcesso to set
+	 */
+	public void setPaginaProcesso(Integer paginaProcesso) {
+		this.paginaProcesso = paginaProcesso;
+	}
 
-    public String getContato() {
-        return contato;
-    }
+	/**
+	 * @return the objeto
+	 */
+	public String getObjeto() {
+		return objeto;
+	}
 
-    public void setContato(String contato) {
-        this.contato = contato;
-    }
+	/**
+	 * @param objeto
+	 *            the objeto to set
+	 */
+	public void setObjeto(String objeto) {
+		this.objeto = objeto;
+	}
 
-    public String getObjeto() {
-        return objeto;
-    }
+	/**
+	 * @return the dataAssinatura
+	 */
+	public Calendar getDataAssinatura() {
+		return dataAssinatura;
+	}
 
-    public void setObjeto(String objeto) {
-        this.objeto = objeto;
-    }
+	/**
+	 * @param dataAssinatura
+	 *            the dataAssinatura to set
+	 */
+	public void setDataAssinatura(Calendar dataAssinatura) {
+		this.dataAssinatura = dataAssinatura;
+	}
 
-    public Calendar getDataAssinatura() {
-        return dataAssinatura;
-    }
+	/**
+	 * @return the dataTerminoVigencia
+	 */
+	public Calendar getDataTerminoVigencia() {
+		return dataTerminoVigencia;
+	}
 
-    public void setDataAssinatura(Calendar dataAssinatura) {
-        this.dataAssinatura = dataAssinatura;
-    }
+	/**
+	 * @param dataTerminoVigencia
+	 *            the dataTerminoVigencia to set
+	 */
+	public void setDataTerminoVigencia(Calendar dataTerminoVigencia) {
+		this.dataTerminoVigencia = dataTerminoVigencia;
+	}
 
-    public Calendar getDataTerminoVigencia() {
-        return dataTerminoVigencia;
-    }
+	/**
+	 * @return the pedidos
+	 */
+	public List<Pedido> getPedidos() {
+		return pedidos;
+	}
 
-    public void setDataTerminoVigencia(Calendar dataTerminoVigencia) {
-        this.dataTerminoVigencia = dataTerminoVigencia;
-    }
+	/**
+	 * @param pedidos
+	 *            the pedidos to set
+	 */
+	public void setPedidos(List<Pedido> pedidos) {
+		this.pedidos = pedidos;
+	}
 
-    public List<Pedido> getPedidos() {
-        return pedidos;
-    }
+	/**
+	 * @return the itens
+	 */
+	public List<Item> getItens() {
+		return itens;
+	}
 
-    public void setPedidos(List<Pedido> pedidos) {
-        this.pedidos = pedidos;
-    }
+	/**
+	 * @param itens
+	 *            the itens to set
+	 */
+	public void setItens(List<Item> itens) {
+		this.itens = itens;
+	}
 
-    public List<Item> getItens() {
-        return itens;
-    }
+	/**
+	 * @return the adesoes
+	 */
+	public List<AdesaoAta> getAdesoes() {
+		return adesoes;
+	}
 
-    public void setItens(List<Item> itens) {
-        this.itens = itens;
-    }
+	/**
+	 * @param adesoes
+	 *            the adesoes to set
+	 */
+	public void setAdesoes(List<AdesaoAta> adesoes) {
+		this.adesoes = adesoes;
+	}
 
-    public List<AdesaoAta> getAdesoes() {
-        return adesoes;
-    }
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
 
-    public void setAdesoes(List<AdesaoAta> adesoes) {
-        this.adesoes = adesoes;
-    }
-    
-    
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		AtaLicitacao other = (AtaLicitacao) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
+	}
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof AtaLicitacao)) {
-            return false;
-        }
-        AtaLicitacao other = (AtaLicitacao) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "prt24.gestaoAtasLicitacao.entities.AtaLicitacao[ id=" + id + " ]";
-    }
-    
 }
