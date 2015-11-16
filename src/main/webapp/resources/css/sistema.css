@@ -122,3 +122,7 @@ footer {
     background: url(#{resource['images:seta-para-baixo.png']}) no-repeat;
 }
 /* Menu sistema fim */
+
+.ui-state-disabled {
+	opacity: .60 !important;
+}

@@ -6,11 +6,11 @@
     version="2.2">
 	
 	<factory>
-		<exception-handler-factory>prt24.gestaoAtaLicitacao.util.jsf.JsfExceptionHandlerFactory</exception-handler-factory>
+		<exception-handler-factory>prt24.gestaoAtasLicitacao.util.jsf.JsfExceptionHandlerFactory</exception-handler-factory>
 	</factory>
 	
 	<application>
-		<message-bundle>com.jpfguedes.pedidovenda.Messages</message-bundle>
+		<message-bundle>prt24.gestaoAtasLicitacao.Messages</message-bundle>
 		<locale-config>
 			<default-locale>pt_BR</default-locale>
 		</locale-config>
