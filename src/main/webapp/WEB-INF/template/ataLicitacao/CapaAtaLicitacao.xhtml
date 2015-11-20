@@ -1,0 +1,34 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html" 
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<p:panelGrid columns="2" id="painel" style="width: 100%; margin-top: 20px;" columnClasses="rotulo, campo">
+    	<p:outputLabel for="numeroAta" value="Número da ata" />
+        <p:inputMask id="numeroAta" value="#{cadastroAtaLicitacaoBean.ataLicitacao.numeroAta}" 
+        		mask="99.9999" size="10" />
+        
+        <p:outputLabel for="numeroProcesso" value="Número do processo" />
+        <p:inputMask id="numeroProcesso" value="#{cadastroAtaLicitacaoBean.ataLicitacao.numeroProcesso}" 
+        		mask="9.99.999.999999/9999-99" size="23" />
+        
+        <p:outputLabel for="paginaProcesso" value="Página do processo" />
+        <p:inputText id="paginaProcesso" value="#{cadastroAtaLicitacaoBean.ataLicitacao.paginaProcesso}" size="5" />
+        
+        <p:outputLabel for="fornecedor" value="Fornecedor" />
+        <p:inputText id="fornecedor" value="#{cadastroAtaLicitacaoBean.ataLicitacao.fornecedor}" size="60" />
+        
+        <p:outputLabel for="objeto" value="Objeto" />
+        <p:inputTextarea id="objeto" rows="5" />
+        
+        <p:outputLabel for="dataAssinatura" value="Data da assinatura" />
+        <p:calendar id="dataAssinatura" pattern="dd/MM/yyyy" mask="true" />
+        
+        <p:outputLabel for="dataTermino" value="Data de término" />
+        <h:outputText id="dataTermino">
+        	<f:convertDateTime pattern="dd/MM/yyyy" />
+        </h:outputText>      
+	</p:panelGrid>
+	
+</ui:composition>

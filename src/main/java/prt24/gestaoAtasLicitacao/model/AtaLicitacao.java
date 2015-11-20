@@ -25,7 +25,7 @@ import javax.persistence.Table;
 public class AtaLicitacao implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private Integer id;
+	private Long id;
 	private String numeroAta;
 	private String numeroProcesso;
 	private Integer paginaProcesso;
@@ -35,20 +35,24 @@ public class AtaLicitacao implements Serializable {
 	private List<Pedido> pedidos;
 	private List<Item> itens;
 	private List<AdesaoAta> adesoes;
+	private Fornecedor fornecedor;
+	private List<Contato> contatos;
 
 	public AtaLicitacao() {
-		this.pedidos = new ArrayList<Pedido>();
-		this.itens = new ArrayList<Item>();
-		this.adesoes = new ArrayList<AdesaoAta>();
+		this.pedidos = new ArrayList<>();
+		this.itens = new ArrayList<>();
+		this.adesoes = new ArrayList<>();
+		this.fornecedor = new Fornecedor();
+		this.contatos = new ArrayList<>();
 	}
 
 	/**
 	 * @return the id
 	 */
-	
+
 	@Id
 	@GeneratedValue
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
@@ -56,7 +60,7 @@ public class AtaLicitacao implements Serializable {
 	 * @param id
 	 *            the id to set
 	 */
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -193,6 +197,36 @@ public class AtaLicitacao implements Serializable {
 	 */
 	public void setAdesoes(List<AdesaoAta> adesoes) {
 		this.adesoes = adesoes;
+	}
+
+	/**
+	 * @return the fornecedor
+	 */
+	public Fornecedor getFornecedor() {
+		return fornecedor;
+	}
+
+	/**
+	 * @param fornecedor
+	 *            the fornecedor to set
+	 */
+	public void setFornecedor(Fornecedor fornecedor) {
+		this.fornecedor = fornecedor;
+	}
+
+	/**
+	 * @return the contatos
+	 */
+	public List<Contato> getContatos() {
+		return contatos;
+	}
+
+	/**
+	 * @param contatos
+	 *            the contatos to set
+	 */
+	public void setContatos(List<Contato> contatos) {
+		this.contatos = contatos;
 	}
 
 	/*

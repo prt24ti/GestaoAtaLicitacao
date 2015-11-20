@@ -24,7 +24,7 @@ public class Item implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private Integer id;
+	private Long id;
 	private String numeroItemNaAta;
 	private String descricao;
 	private String marca;
@@ -38,7 +38,7 @@ public class Item implements Serializable {
 
 	@Id
 	@GeneratedValue
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
@@ -46,7 +46,7 @@ public class Item implements Serializable {
 	 * @param id
 	 *            the id to set
 	 */
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

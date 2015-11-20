@@ -25,7 +25,7 @@ public class Pedido implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private Integer id;
+	private Long id;
 	private String numeroPedido;
 	private Calendar dataPedido;
 	private Integer quantidade;
@@ -38,7 +38,7 @@ public class Pedido implements Serializable {
 	
 	@Id
 	@GeneratedValue
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
@@ -46,7 +46,7 @@ public class Pedido implements Serializable {
 	 * @param id
 	 *            the id to set
 	 */
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

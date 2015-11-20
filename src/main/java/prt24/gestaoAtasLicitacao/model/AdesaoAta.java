@@ -25,7 +25,7 @@ public class AdesaoAta implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
-	private Integer id;
+	private Long id;
 	private String numeroAdesaoNaAta;
 	private String orgao;
 	private Boolean aprovacaoMpt;
@@ -40,7 +40,7 @@ public class AdesaoAta implements Serializable {
 	
 	@Id
 	@GeneratedValue
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
@@ -48,7 +48,7 @@ public class AdesaoAta implements Serializable {
 	 * @param id
 	 *            the id to set
 	 */
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

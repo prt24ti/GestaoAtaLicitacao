@@ -14,43 +14,19 @@
         	<h1>Nova ata de licitação</h1>
             <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
             
-            <p:toolbar style="margin-top: 20px">
-				<p:toolbarGroup>
-					<p:button value="Novo" outcome="/ataLicitacao/CadastroAtaLicitacao" />
-					<p:commandButton value="Salvar" id="botaoSalvar" update="@form" />
-				</p:toolbarGroup>
-				<p:toolbarGroup align="right">
-					<p:button value="Pesquisar" />
-				</p:toolbarGroup>
-			</p:toolbar>
+            <ui:include src="/WEB-INF/templates/ataLicitacao/BotoesAtaLicitacao.xhtml" />
 			
-            <p:panelGrid columns="2" id="painel" style="width: 100%; margin-top: 20px;" columnClasses="rotulo, campo">
-                <p:outputLabel for="numeroAta" value="Número da ata" />
-                <p:inputMask id="numeroAta" mask="99.9999" />
+			<ui:include src="/WEB-INF/templates/ataLicitacao/CapaAtaLicitacao.xhtml" />
                 
-                <p:outputLabel for="numeroProcesso" value="Número do processo" />
-                <p:inputMask id="numeroProcesso" mask="9.99.999.999999/9999-99" size="23" />
-                
-                <p:outputLabel for="paginaProcesso" value="Página do processo" />
-                <p:inputText id="paginaProcesso" />
-                
-                <p:outputLabel for="fornecedor" value="Fornecedor" />
-                <p:inputText id="fornecedor" />
-                
-                <p:outputLabel for="contato" value="Contato" />
-                <p:inputText id="contato" />
-                
-                <p:outputLabel for="objeto" value="Objeto" />
-                <p:inputText id="objeto" />
-                
-                <p:outputLabel for="dataAssinatura" value="Data da assinatura" />
-                <p:calendar id="dataAssinatura" pattern="dd/MM/yyyy" mask="true" />
-                
-                <p:outputLabel for="dataTermino" value="Data de término" />
-                <h:outputText id="dataTermino">
-                	<f:convertDateTime pattern="dd/MM/yyyy" />
-                </h:outputText>      
-            </p:panelGrid>
+            <p:tabView style="margin-top: 20px">
+				<p:tab title="Contatos">
+					<ui:include src="/WEB-INF/template/ataLicitacao/ContatosAtaLicitacao.xhtml" />
+				</p:tab>
+				 
+				<p:tab title="Itens">
+					<ui:include src="/WEB-INF/template/ataLicitacao/ItensAtaLicitacao.xhtml" />
+				</p:tab>
+			</p:tabView>
         </h:form>
     </ui:define>
 </ui:composition>
